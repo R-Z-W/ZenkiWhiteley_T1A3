@@ -46,15 +46,24 @@ Possible Additions
 """
 
 
-import csv
+import pandas as pd
+import numpy as np
 
 
 # daily_log = open('log.txt', 'r')  input("Input Daily Log File Here: ")
 # print(daily_log.readlines())
 
-def find_product(daily_log):
-    print("finding product")
-
+def find_product():
+    csv_f = 'detailing_database.csv' #input("Input Database File Here: ")
+    csv_database = pd.read_csv(csv_f)
+    csv_name = list(csv_database['Name'])
+    for key in daily_log_dic.keys():
+        if key in csv_name:
+            print(f" {key}: Already Exists" )
+            print(int(csv_name.index(key)) + 2)
+            csv_database.loc[csv_name.index(key),'InUse'] = 'TRUE'
+            csv_database.to_csv(csv_f, index=False)
+                
 
 daily_log_dic = {}
 
@@ -67,22 +76,11 @@ with open('log1.txt', "r") as daily_log: #input("Input Daily Log File Here: ")
             continue
         else: 
             product_key_value = tuple(line.strip().split(':'))
-            print
             products.append(product_key_value)
             #daily_log_dic = dict(product_data)
     daily_log_dic= dict(products)
 # print(daily_log_dic)
 
+find_product()
 
-        
-
-    
-
-with open('detailing_database.csv', "r+") as database: #input("Input Database File Here: ")
-    for line in database:
-        for key in daily_log_dic.keys():
-            if key in line:
-                print(f" {key}: Already Exists" )
-            
-    #print(database.read())
 
