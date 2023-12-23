@@ -114,8 +114,9 @@ def find_product_database():
             print(f'{key} : {value}')
             if key == 'Recorded_Date':
                 date = value
-                csv_database[date] = "" #define new column based on date
-                csv_database.to_csv(csv_f, index=False) #push to csv
+                if value not in csv_database.head(0):
+                    csv_database[date] = "" #define new column based on date
+                    csv_database.to_csv(csv_f, index=False) #push to csv
             
         # If Exist Set:
         elif key.casefold() in csv_case_name:
@@ -123,7 +124,7 @@ def find_product_database():
             print(f"{key}:{value} : Already Exists" )
             # print(int(csv_name.index(key)) + 2)
             csv_database.loc[csv_name.index(key),'InUse'] = True #set InUse to True
-            csv_database.loc[csv_name.index(key), date] = value #record date usage / Bug: Make sure recorded is set.
+            csv_database.loc[csv_name.index(key), date] = float(value) #record date usage / Bug: Make sure recorded is set.
             csv_database.to_csv(csv_f, index=False) #push to csv
         
         # Add new product to database file
@@ -149,7 +150,7 @@ def find_product_database():
                            'Ratio': ratio,
                            'InUse': True,
                            'SingleUse': single_use,
-                           date: value}
+                           date: float(value)}
                 csv_database.loc[len(csv_database)] = new_row
                 csv_database.to_csv(csv_f, index=False)#push to csv
                 print(csv_database.tail(1))#print last element added
