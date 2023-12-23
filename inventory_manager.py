@@ -138,7 +138,7 @@ def add_to_database(csv_database, csv_name, csv_f, name, using, logged, value, d
     if logged == True:
         csv_database.loc[csv_name.index(name), date] = float(value)
     csv_database.to_csv(csv_f, index=False)#push to csv
-    print(csv_database.tail(1))#print last element added
+    print(csv_database.loc[[csv_name.index(name)],:])
 
 def low_notify(name, csv_f, value):
     if not name.startswith('Recorded'):
@@ -191,19 +191,18 @@ def compare_log_database():
         low_notify(key, csv_f, value) #Notify if Low
 
 def search_database():
-    csv_f = 'detailing_database.csv' #input("Input Database File Here: ")
+    csv_f = 'detailing_database.csv' #input("Input Database File Here: ") #Read new csv as it may have been updated
     csv_database = pd.read_csv(csv_f) #read database
     csv_name = list(csv_database['Name']) #Names to list
     csv_case_name = list((item.casefold() for item in csv_name)) #change to Case Insensitive
     product_search = input('-Input Product: ')
-    using = usr_input_boolean('-Currently in use? True or False: ')
+    using = usr_input_boolean('-Currently in use? True or False: ') #change logged to set InUse to true or false
     logged = False
     value = None
     date = None
-    print(product_search.casefold())
-    print(csv_case_name)
     if product_search.casefold() in csv_case_name:
         exist_in_database(csv_database, csv_name, csv_f, product_search, using, logged, value, date)
+        print(csv_database.loc[[csv_name.index(product_search)],:])
     else:
         print(f'\nNew Product: {product_search}\n ')
         yes_no = input('-Add To Database? Y/N: ')
@@ -236,6 +235,7 @@ while True:
     Forecast Usage      = (2)
     Search Database     = (3)
     Add To Database     = (4)
+    Display Database    = (5)
           """)
     usr = usr_input_num('-Input a Number: ')
 
@@ -254,10 +254,14 @@ while True:
             csv_name = list(csv_database['Name']) #Names to list
             add_to_database(csv_database, csv_name, csv_f, name, using, logged, value, date) 
             pass
+        case 5:
+            csv_f = 'detailing_database.csv'
+            csv_database = pd.read_csv(csv_f) #Important MUST read UPDATED csv
+            pd.set_option('display.max_rows', 1000)
+            print(csv_database)
 
 
-
-    exit = input('\nExit or go again? Y/N: ')
+    exit = input('\nExit? Y/N: ')
     print('\n')
     if exit.lower() in yes_list:
         print('Exiting...')
