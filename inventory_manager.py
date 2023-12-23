@@ -58,11 +58,28 @@ def calculate_forecast():
     pass
 def calculate_cost():
     pass
-def notify():
-    if 'low':
-        pass
-    if 'over_usage':
-        pass
+
+
+
+def notify(key, csv_f, value):
+    if not key.startswith('Recorded'):
+        csv_database = pd.read_csv(csv_f) #Important read UPDATED csv
+        csv_name = list(csv_database['Name'])
+        unit_quantity = csv_database.loc[csv_name.index(key),'UnitQuantity']
+        extra = csv_database.loc[csv_name.index(key),'Extra']
+        amount_left = (unit_quantity * extra) - float(value)
+        if amount_left <= (unit_quantity * extra)*.2:
+            print("WARNING UNDER 20%' LEFT!")
+            yes_no = input('-Order More Product? Y/N: ')
+            if yes_no.lower() in yes_list:
+                usr_quantity = usr_input_num('-Input Quantity of Product: ')
+                price = csv_database.loc[csv_name.index(key),'OverallPrice']
+                total = float(price) * float(usr_quantity)
+                with open('productorder.txt', 'a') as product_order:
+                    product_order.write(str(usr_quantity) + ', ' + key + ', ' + str(price) + ', ' + str(total))
+
+
+    # if 'over_usage':
 def calculate_compare():
     if 'cheaper':
         pass
@@ -89,7 +106,6 @@ def usr_input_boolean(prompt):
             return bool_in
         except:
             print("Invalid bool, Try True or False")
-
 def usr_input_ratio(prompt):
     print(prompt)
     ratio_1 = usr_input_num('-First Number: ')
@@ -100,9 +116,6 @@ def usr_input_ratio(prompt):
         ratio_in = str(ratio_1) + ':' + str(ratio_2)
     return ratio_in
 
-
-
-
 def find_product_database():
     csv_f = 'detailing_database.csv' #input("Input Database File Here: ")
     csv_database = pd.read_csv(csv_f) #read database
@@ -110,6 +123,7 @@ def find_product_database():
     csv_case_name = list((item.casefold() for item in csv_name)) #change to Case Insensitive
     for key in daily_log_dic.keys():
         value = daily_log_dic[key]
+
         if key.startswith('Recorded'):
             print(f'{key} : {value}')
             if key == 'Recorded_Date':
@@ -121,10 +135,9 @@ def find_product_database():
         # If Exist Set:
         elif key.casefold() in csv_case_name:
             print('Checking Product...')
-            print(f"{key}:{value} : Already Exists" )
-            # print(int(csv_name.index(key)) + 2)
+            print(f"{key}: Already Exists" )
             csv_database.loc[csv_name.index(key),'InUse'] = True #set InUse to True
-            csv_database.loc[csv_name.index(key), date] = float(value) #record date usage / Bug: Make sure recorded is set.
+            csv_database.loc[csv_name.index(key), date] = float(value) #record date usage
             csv_database.to_csv(csv_f, index=False) #push to csv
         
         # Add new product to database file
@@ -151,17 +164,17 @@ def find_product_database():
                            'InUse': True,
                            'SingleUse': single_use,
                            date: float(value)}
-                csv_database.loc[len(csv_database)] = new_row
+                csv_database.loc[len(csv_database)] = new_row #create new row
                 csv_database.to_csv(csv_f, index=False)#push to csv
                 print(csv_database.tail(1))#print last element added
+        
+        notify(key, csv_f, value)
 
-    
 # Open, Read and Close Log File
 def open_log():
     try:
-        log_file = input("Input Daily Log File Here: ")
+        log_file = input('-Input Daily Log File: ')
         with open(log_file, "r") as daily_log:
-            # print(daily_log.readlines())
             products = []
             for line in daily_log:
                 if line.startswith('#'): #remove comments
@@ -169,20 +182,29 @@ def open_log():
                 else: #put products in tuple pairs
                     product_key_value = tuple(line.strip().split(':'))
                     products.append(product_key_value)
-                    #daily_log_dic = dict(product_data)
             global daily_log_dic #not best practise / dictionary for products and their values
             daily_log_dic = dict(products) #dictionary from tuple pairs
     except:
         print('Invalid log file.')
 
-
-
 # Main
 yes_list = ['y', 'yes']
 daily_log_dic = {} #incase open_log() doesnt run
 while True:
-    open_log()
-    find_product_database()
+    print(""""
+    Inventory Manager
+    Options:
+    Process Log File      = (1)
+    Forecast Usage        = (2)
+          """)
+    usr = usr_input_num('-Input a Number: ')
+
+    match usr:
+        case 1:
+            open_log()
+            find_product_database()
+        case 2:
+            calculate_forecast()
 
     exit = input('\nWould you like to Again or exit? Y/N: ')
     print('\n')
