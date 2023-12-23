@@ -65,18 +65,20 @@ def notify(key, csv_f, value):
     if not key.startswith('Recorded'):
         csv_database = pd.read_csv(csv_f) #Important read UPDATED csv
         csv_name = list(csv_database['Name'])
-        unit_quantity = csv_database.loc[csv_name.index(key),'UnitQuantity']
-        extra = csv_database.loc[csv_name.index(key),'Extra']
-        amount_left = (unit_quantity * extra) - float(value)
-        if amount_left <= (unit_quantity * extra)*.2:
-            print("WARNING UNDER 20%' LEFT!")
-            yes_no = input('-Order More Product? Y/N: ')
-            if yes_no.lower() in yes_list:
-                usr_quantity = usr_input_num('-Input Quantity of Product: ')
-                price = csv_database.loc[csv_name.index(key),'OverallPrice']
-                total = float(price) * float(usr_quantity)
-                with open('productorder.txt', 'a') as product_order:
-                    product_order.write(str(usr_quantity) + ', ' + key + ', ' + str(price) + ', ' + str(total))
+        if csv_database.loc[csv_name.index(key),'SingleUse'] in [True, 'TRUE', 'True']: #Not single use, then it wont be under 20%
+            unit_quantity = csv_database.loc[csv_name.index(key),'UnitQuantity']
+            extra = csv_database.loc[csv_name.index(key),'Extra']
+            amount_left = (unit_quantity * extra) - float(value)
+            if amount_left <= (unit_quantity * extra)*.2:
+                print("WARNING UNDER 20%' LEFT!")
+                yes_no = input('-Order More Product? Y/N: ')
+                if yes_no.lower() in yes_list:
+                    usr_quantity = usr_input_num('-Input Quantity of Product: ')
+                    price = csv_database.loc[csv_name.index(key),'OverallPrice']
+                    total = float(price) * float(usr_quantity)
+                    with open('productorder.txt', 'a') as product_order:
+                        product_order.write(str(usr_quantity) + ', ' + key + ', ' + str(price) + ', ' + str(total))
+                        print('Added To: productorder.txt')
 
 
     # if 'over_usage':
