@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import re
+import matplotlib.pyplot as plt
 
 # User Input Try Functions
 def usr_input_num(prompt):
@@ -213,10 +214,20 @@ def calculate_leastsquare():
             date_data.append(y)
         if limit <= 0:
             print('Projected Usage Approaches 0 before running out. Provide more data!')
+            
         elif limit >= 100:
             print(f'Projected {len(date_data)-1} Days Left!')
+            line_graph(x, date_data, name)
     except:
         print(f'No Forecast Data Available For {name}')
+        line_graph(x, date_data, name)
+
+def line_graph(x, y, name):
+    plt.plot(x, y)  # Line Graph    
+    plt.xlabel('Days')
+    plt.ylabel('Usage')
+    plt.title(name + ' Graph')
+    plt.show() 
 
 def calculate_cost():
     pass
@@ -233,22 +244,22 @@ while True:
     (3 Logs Required)           = (2)
     Search/Add Database         = (3)
     Add Product to Order        = (4)
-    Display Database            = (5)      
+    Display Database            = (5)
+    Calculate Log Cost          = (6)     
           """)
     usr = usr_input_num('-Input a Number: ')
 
     match usr:
-        case 1:
+        case 1: #Process Log
             open_log()
-            
-        case 2:
+        case 2: # Forecast
             calculate_leastsquare()
-        case 3:
+        case 3: # Search
             search_database()
-        case 4:
+        case 4: # Order
             name = input('-Input Name of Product: ')
             order_product(name)
-        case 5:
+        case 5: # Display Database
             csv_f, csv_database, csv_case_name, csv_name = open_csv()
             pd.set_option('display.max_rows', 1000)
             print(csv_database)
