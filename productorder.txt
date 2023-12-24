@@ -5,4 +5,4 @@ Author:
 Address:
 Phone:
 
-Quantity, Item, Price, Total
+Quantity, Item, Price, Total:
