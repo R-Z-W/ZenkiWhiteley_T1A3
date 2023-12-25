@@ -307,15 +307,20 @@ def add_to_database(name, using, value, date):
 def order_product(name):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     usr_quantity = usr_input_num('-Input Quantity of Product: ') #Quantity needed
-    overall_price = csv_database.loc[csv_name.index(name),'OverallPrice']
-    total_amount = calculate_total_amount()
     try:
-        with open('productorder.txt', 'a') as product_order:
-            product_order.write('\n' + str(usr_quantity) + ', ' + name + ', ' + str(overall_price) + ', ' + str(total_amount))
-            print('\n   Added To: productorder.txt\n')
+        overall_price = csv_database.loc[csv_name.index(name),'OverallPrice']
+        total_amount = calculate_total_amount()
+        try:
+            with open('productorder.txt', 'a') as product_order:
+                product_order.write('\n' + str(usr_quantity) + ', ' + name + ', ' + str(overall_price) + ', ' + str(total_amount))
+                print('\n   Added To: productorder.txt\n')
+        except Exception as e:
+            print(e)
+            print('Error: Could Not Find productorder.txt')
     except Exception as e:
         print(e)
-        print('Error: Could Not Find productorder.txt')
+        print('Error: Could Not Find Product')
+    
 
 #Notifty When Amount is Below 20%
 def low_notify(name, value):
