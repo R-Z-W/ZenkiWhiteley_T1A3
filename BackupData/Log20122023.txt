@@ -1,0 +1,22 @@
+#Place Record Details Here.
+#Large(Van, Truck, FullSizeSuv) Medium(Suv, Sedan, SingleCabUte) Small(Compact,Hatchback)
+    Recorded_Date: 20/12/23
+    Recorded_Large_Car: 4
+    Recorded_Medium_Car: 1
+    Recorded_Small_Car: 2
+#Place Used Products Here.	
+Earplugs: 4	
+nitrate gloves: 23
+Autoklene T2000: 10113
+Autoklene Final Touch: 134	
+Oates scrub brush: 1
+Autoklene interior brush: 1
+The Rag Company Gauntlet: 11		
+The Rag Company Eagle Edgeless 500: 13		
+Thinners: 8	
+Autoklene Super Sheen: 542	
+Autoklene 2″ Plastic Razor Blade Holder: 2	
+Autoklene Fast glass: 147		
+Auto glym glass polish: 121	
+Smart 1000: 22
+Autoklene Calaroma: 156

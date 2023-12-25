@@ -1,0 +1,21 @@
+#Place Record Details Here.
+#Large(Van, Truck, FullSizeSuv) Medium(Suv, Sedan, SingleCabUte) Small(Compact,Hatchback)
+    Recorded_Date: 21/12/2023
+    Recorded_Large_Car: 2
+    Recorded_Medium_Car: 1
+    Recorded_Small_Car: 5
+#Place Used Products Here.
+Earplugs: 5
+nitrate gloves: 26		
+Autoklene T2000: 8233
+Autoklene Final Touch: 655
+Autoklene interior brush: 1
+The Rag Company Gauntlet: 15
+The Rag Company Eagle Edgeless 500: 20
+Autoklene Trisol: 236		
+Thinners: 13
+Gasoline: 32
+Autoklene King Hit: 123			
+0000 Super Fine Steel Wool: 3		
+Autoklene Fast glass: 125
+Smart 2000: 126	

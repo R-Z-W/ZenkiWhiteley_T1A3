@@ -1,0 +1,26 @@
+#Place Record Details Here.
+#Large(Van, Truck, FullSizeSuv) Medium(Suv, Sedan, SingleCabUte) Small(Compact,Hatchback)
+    Recorded_Date: 22/12/23
+    Recorded_Large_Car: 2
+    Recorded_Medium_Car: 4
+    Recorded_Small_Car: 3
+#Place Used Products Here.
+Earplugs: 1		
+nitrate gloves: 27			
+Autoklene T2000: 10002
+Autoklene Final Touch: 343			
+Oates scrub brush: 1
+Autoklene interior brush: 1
+The Rag Company Gauntlet: 16
+The Rag Company Liquid8r: 1
+The Rag Company Eagle Edgeless 500: 18			
+denatured alcochol: 231		
+Thinners: 13	
+Gasoline: 12		
+Autoklene All Shene: 233
+Autoklene King Hit: 433
+Autoklene 2″ Plastic Razor Blade Holder: 1
+America line single edge razor: 1		
+Autoklene Fast glass: 103			
+Smart 500: 123
+Bissell wash & protect: 123
