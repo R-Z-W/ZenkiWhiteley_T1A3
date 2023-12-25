@@ -309,10 +309,10 @@ def order_product(name):
     usr_quantity = usr_input_num('-Input Quantity of Product: ') #Quantity needed
     try:
         overall_price = csv_database.loc[csv_name.index(name),'OverallPrice']
-        total_amount = calculate_total_amount(name)
+        total_cost = overall_price * usr_quantity
         try:
             with open('productorder.txt', 'a') as product_order:
-                product_order.write('\n' + str(usr_quantity) + ', ' + name + ', ' + str(overall_price) + ', ' + str(total_amount))
+                product_order.write('\n' + str(usr_quantity) + ', ' + name + ', ' + str(overall_price) + ', ' + str(total_cost))
                 print('\n   Added To: productorder.txt\n')
         except Exception as e:
             print(e)
