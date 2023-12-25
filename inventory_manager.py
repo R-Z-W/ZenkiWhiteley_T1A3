@@ -95,8 +95,8 @@ def usr_input_boolean(prompt):
         bool_in = input(prompt)
         try:
             boolin = bool(bool_in)
-            bool_in == True or False
-            return bool_in
+            boolin == True or False
+            return boolin
         except Exception as e:
             print(e)
             print("Invalid Entry, Try True or False")
@@ -285,7 +285,7 @@ def add_to_database(name, using, value, date):
     extra = usr_input_num("-Input Quantity Bought: ") # define extra
     unit_price = overall_price / unit_quantity # calc UnitPrice
     ratio =  usr_input_ratio('-Input Ratio') # define ratio
-    single_use =  usr_input_boolean('-Single use? True or False: ')
+    single_use =  str(usr_input_boolean('-Single use? True or False: '))
     new_row = {'Name': name,
                 'Category': category,
                 'OverallPrice': overall_price,
