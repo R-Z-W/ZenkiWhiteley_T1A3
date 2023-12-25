@@ -40,6 +40,8 @@ def main():
                         
             case 2: # Forecast
                 cls()
+                csv_f, csv_database, csv_name = open_csv()
+                print(f'Available Products:\n {csv_name} \n')
                 name = input('-Input Name of Product: ')
                 date_names = get_dates_names()
                 try:
@@ -55,6 +57,8 @@ def main():
 
             case 3: # Search #BUG NEED FIX
                 cls()
+                csv_f, csv_database, csv_name = open_csv()
+                print(f'Available Products:\n {csv_name} \n')
                 name = input('-Input Name of Product: ')
                 using = usr_input_boolean('-Currently InUse? True or False: ') #Change InUse to True or false
                 try:
@@ -396,6 +400,7 @@ def calculate_leastsquare_to_limit(name, y, limit):
             new_y = (m*len(x)) + b # Calculate new y value
             calc_amount = new_y + sum_data # New amount used to compare to 0 or limit
             y.append(new_y) # Append new y to y and go again with new list
+        x.append(len(x)) # Make x the same length as y    
         if calc_amount <= 0:
             print('Projected Usage Approaches 0 before running out. Provide more data!')
             line_graph(x, y, name)
