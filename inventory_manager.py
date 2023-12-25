@@ -309,7 +309,7 @@ def order_product(name):
     usr_quantity = usr_input_num('-Input Quantity of Product: ') #Quantity needed
     try:
         overall_price = csv_database.loc[csv_name.index(name),'OverallPrice']
-        total_amount = calculate_total_amount()
+        total_amount = calculate_total_amount(name)
         try:
             with open('productorder.txt', 'a') as product_order:
                 product_order.write('\n' + str(usr_quantity) + ', ' + name + ', ' + str(overall_price) + ', ' + str(total_amount))
@@ -319,7 +319,7 @@ def order_product(name):
             print('Error: Could Not Find productorder.txt')
     except Exception as e:
         print(e)
-        print('Error: Could Not Find Product')
+        print('Error: Product Does Not Exist. Please Add In Search/Add Database(3) First')
     
 
 #Notifty When Amount is Below 20%
