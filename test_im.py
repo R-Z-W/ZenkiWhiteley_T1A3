@@ -20,6 +20,9 @@ class TestUserTryFunc(unittest.TestCase):
         expected_num = 1
         assert num == expected_num
 
+
+
+
     # @mock.patch('inventory_manager.input', create=True) 
     # def test_usr_input_boolean(self, mocked_input):
     #     mocked_input.side_effect = 'True'

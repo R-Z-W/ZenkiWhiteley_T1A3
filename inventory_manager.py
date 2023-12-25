@@ -371,7 +371,7 @@ def calculate_total_amount(name):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     unit_quantity = csv_database.loc[csv_name.index(name),'UnitQuantity'] #get UnitQuantity
     extra = csv_database.loc[csv_name.index(name),'Extra'] #get Extra
-    total_amount = (unit_quantity * extra) #calculate Total Amount
+    total_amount = (unit_quantity + unit_quantity * extra) #calculate Total Amount
     return total_amount
 
 # For Forecast Calculation    
