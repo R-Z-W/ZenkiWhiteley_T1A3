@@ -17,14 +17,13 @@ def main():
         Search/Add Database         = (3)
         Add Product to Order        = (4)
         Display Database            = (5)
-        Calculate Log Cost          = (6)
-        Reset Program               = (7)    
+        Reset Program               = (6)    
             """)
         usr = usr_input_num('-Input a Number: ')
         match usr:
             case 1: #Process Log
                 cls()
-                # * BUG make sure log files are inserted in order else dates will not align in csv
+                # BUG make sure log files are inserted in order else dates will not align in csv
                 log_names = get_log_names() # Display Available Log Files
                 if len(log_names) > 1:
                     if yes_no_check('\n-Open Multiple Log Files Y/N: ') == True:
@@ -73,13 +72,7 @@ def main():
                 cls()
                 display_database()
 
-            case 6: # Calculate Cost
-                cls()
-                get_dates_names()
-                get_dates_data()
-                pass
-
-            case 7:
+            case 6:
                 cls()
                 reset()
 
@@ -430,8 +423,6 @@ def line_graph(x, y, name):
     plt.title(name + ' Graph')
     plt.show() 
 
-# alculate Cost
-def calculate_cost():
     pass
 
 
