@@ -25,11 +25,21 @@ def main():
                 # * BUG make sure log files are inserted in order else dates will not align in csv
                 log_names = get_log_names() # Display Available Log Files
                 print('\n')
-                log_file = input('-Input Oldest Daily Log File: ')
-                if open_log(log_file) == True: #If Successful move onto next functions
-                    move_to_OldLogs(log_file) #Move Log File
-                    compare_log_database(daily_log_dic)
 
+                if len(log_names) > 1:
+                    if yes_no_check('-Open Multiple Log Files Y/N: ') == True:
+                        for log_file in log_names:
+                            if open_log(log_file) == True: #If Successful move onto next functions
+                                move_to_OldLogs(log_file) # Move Log File
+                                compare_log_database()
+
+                elif len(log_names) <= 1:
+                    log_file = input('-Input Oldest Daily Log File: ')
+                    if open_log(log_file) == True: #If Successful move onto next functions
+                        move_to_OldLogs(log_file) #Move Log File
+                        compare_log_database()
+                # No Log Files is handled in get_log_names()
+                        
             case 2: # Forecast
                 cls()
                 name = input('-Input Name of Product: ')
@@ -193,7 +203,7 @@ def create_date_column(value):
     return date
 
 # Compare Log to Database, Takes in log files
-def compare_log_database(daily_log_dic):
+def compare_log_database():
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     csv_case_name = csv_name_casefold(csv_name)
     for key in daily_log_dic.keys():
@@ -277,7 +287,7 @@ def low_notify(name, value):
     if not name.startswith('Recorded'): #Skip Recorded
         csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
         if csv_database.loc[csv_name.index(name),'SingleUse'] in [True, 'TRUE', 'True']: #Not SingleUse, no need for 20%
-            total_amount = calculate_total_amount()
+            total_amount = calculate_total_amount(name)
             amount_left = total_amount - float(value)#Caluclate Max Quantity Left
             if amount_left <= total_amount*.2: #Calculate 20% of Max Quantity and compare to Total Amount left
                 print("\n   WARNING UNDER '20%' LEFT!    \n")
