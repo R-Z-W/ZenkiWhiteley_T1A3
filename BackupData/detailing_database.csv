@@ -1,0 +1,136 @@
+Name,Category,OverallPrice,UnitQuantity,Extra,UnitPrice,Ratio,InUse,SingleUse
+Earplugs,PPE,21,100,1,0.21,2,False,TRUE
+safetly glasses,PPE,25.95,1,4,25.95,1,False,FALSE
+work knee pads,PPE,28.19,1,1,28.19,1,False,FALSE
+Kneeling Pad,PPE,49.5,1,0,49.5,1,False,FALSE
+nitrate gloves,PPE,16.5,100,8,0.165,2,False,TRUE
+klien tools reusable respirator with replaceable filters,PPE,65,1,0,65,1,False,FALSE
+FIGHTECH Reusable Dust Mask,PPE,11.99,1,0,11.99,1,False,FALSE
+dual cartridge respirator,PPE,48.57,1,0,48.57,2,False,FALSE
+Chemical wipes,PPE,99.58,100,0,0.9958,1,False,TRUE
+Koch Chemie Green Star GS Universal Cleaner,All Purpose Cleaner,220.95,10000,0,0.022095,1:5,False,TRUE
+Autoklene T2000,All Purpose Cleaner,33,20000,2,0.00165,1:5,True,TRUE
+Koch-Chemie Spray Sealant S0.02v,Sealant/Wax,91.95,500,0,0.1839,1,False,TRUE
+Carpro Release,Sealant/Wax,15.65,1000,0,0.01565,1,False,TRUE
+Autoklene Final Touch,Sealant/Wax,57.75,20000,2,0.0028875,1,False,TRUE
+Auto glym Rapid Aque Wax,Sealant/Wax,97.47,5000,0,0.019494,1,False,TRUE
+Meguiar's Ultimate Quik Wax,Sealant/Wax,73.94,3800,0,0.0194578947368421,1,False,TRUE
+work stuff detail brush,Brushes,46.99,4,0,11.7475,1,False,FALSE
+Drillbrush Automotive Soft White Drill Brush,Brushes,51.48,4,2,12.87,1,False,FALSE
+ez detail wheel rim cleaner,Brushes,49.9,1,0,49.9,1,False,FALSE
+chemial guys acc_g08,Brushes,32.99,1,0,32.99,1,False,FALSE
+detail factory tire scrub,Brushes,34.95,1,0,34.95,1,False,FALSE
+detail factory boar hair detailing brush,Brushes,32.9,1,0,32.9,1,False,FALSE
+detail factory trigrip ultra soft,Brushes,34.5,1,0,34.5,1,False,FALSE
+Wheel Woolies Caliper Spoke Brush 12 in,Brushes,82.99,2,0,41.495,1,False,FALSE
+ABN Car Wheel Rim Cleaning,Brushes,53.99,3,0,17.9966666666667,1,False,FALSE
+Chemical Guys Acc_S02 Dual Purpose Toothbrush Style Detailing Brush,Brushes,3.99,1,0,3.99,1,False,FALSE
+QNIX | Dual-Purpose Toothbrush Style Detail Brush,Brushes,1.99,1,0,1.99,1,False,FALSE
+DETAIL TOOTHBRUSH WHITE NYLON,Brushes,2.3,1,0,2.3,1,False,FALSE
+Oates scrub brush,Brushes,13.2,1,0,13.2,1,False,FALSE
+Autoklene interior brush,Brushes,9.99,3,6,3.33,1,False,FALSE
+Autofiber Dreadnought,Towels,35,1,0,35,1,False,FALSE
+Gyeon Silk Dryer,Towels,22.99,1,0,22.99,1,True,FALSE
+The Rag Company Gauntlet,Towels,13.95,1,50,13.95,1,False,FALSE
+The Rag Company Liquid8r,Towels,15.45,1,50,15.45,1,False,FALSE
+The Rag Company Eagle Edgeless 500,Towels,10.95,1,50,10.95,1,False,FALSE
+The Rag Company Dry Me A River,Towels,15.45,1,50,15.45,1,False,FALSE
+The Rag Company Edgeless 300,Towels,3.25,1,50,3.25,1,True,FALSE
+The Rag Company All-Purpose Microfiber Terry Cleaning Towels,Towels,2.15,1,50,2.15,1,False,FALSE
+denatured alcochol,Special Chemicals,30,5000,1,0.006,1:1,False,TRUE
+white spirits / mineral spirits,Special Chemicals,7.5,1000,2,0.0075,1,False,TRUE
+prepsol,Special Chemicals,109.09,20000,2,0.0054545,1,False,TRUE
+Autoklene Trisol,Special Chemicals,93.71,20000,2,0.0046855,1,True,TRUE
+Methylated spirit,Special Chemicals,6.5,10000,1,0.00065,1:1,True,TRUE
+Thinners,Special Chemicals,38.5,4000,0,0.009625,1,True,TRUE
+Rapid Remover Vinyl Letter Remover,Special Chemicals,317.9,19000,0,0.0167315789473684,1,False,TRUE
+White Vinegar,Special Chemicals,1,2000,3,0.0005,1:1,True,TRUE
+p&s iron buster,Special Chemicals,35.95,3800,0,0.0094605263157894,1,True,TRUE
+Korrosol,Special Chemicals,236,5000,1,0.0472,1,True,TRUE
+Car Pro Tar x,Special Chemicals,149.95,4000,0,0.0374875,1,False,TRUE
+Gasoline,Special Chemicals,1.873,1000,3,0.001873,1,False,TRUE
+Sonax Tar Remover,Special Chemicals,11,300,0,0.0366666666666667,1,False,TRUE
+GTECHNIQ W7 TAR AND GLUE REMOVER,Special Chemicals,19.8,500,0,0.0396,1,False,TRUE
+GYEON Q2M TARGYEON Q2M TAR,Special Chemicals,29.99,500,0,0.05998,1,False,TRUE
+Stoner Car Care Tarminator,Special Chemicals,19.99,295,0,0.0677627118644068,1,False,TRUE
+car pro perl,Trim Dressing,114.35,4000,0,0.0285875,1,False,TRUE
+Chemical guys vrp,Trim Dressing,31.99,475,0,0.0673473684210526,1,False,TRUE
+mastersons spray shine,Trim Dressing,17.99,475,0,0.0378736842105263,1,False,TRUE
+Chemical guys g6 hyper coat,Trim Dressing,36.46,476,0,0.0765966386554622,1,False,TRUE
+Autoklene All Shene,Trim Dressing,149.05,20000,2,0.0074525,1,False,TRUE
+GYEON Quartz Q² Tire,Trim Dressing,32.99,400,0,0.082475,1,False,TRUE
+Autoklene Super Sheen,Trim Dressing,162.5,20000,2,0.008125,1,False,TRUE
+Auto glym bumper & trim gel,Trim Dressing,22.99,325,2,0.0707384615384615,1,False,TRUE
+Black Wow,Trim Dressing,29.99,475,0,0.0631368421052632,1,False,TRUE
+Meguiar's PlastX Plastic Cleaner & Polish,Trim Dressing,36,296,0,0.121621621621622,1,False,TRUE
+optimum hyper polish,Trim Dressing,29.99,3800,0,0.0078921052631578,1,False,TRUE
+303 Aerospace Protectant,Trim Dressing,125.02,3780,0,0.0330740740740741,1,False,TRUE
+koch chemie guf,Trim Dressing,290.95,10000,0,0.029095,1,False,TRUE
+Koch Chemie Gentle Snow Foam GSF,Foam,199.95,5000,0,0.03999,1,False,TRUE
+Adam’s Mega Foam,Foam,153.19,3800,0,0.0403131578947368,1,False,TRUE
+Bilt Hamber auto foam,Foam,85.9,5000,0,0.01718,1,False,TRUE
+Brisk Low foam,Foam,86.17,20000,0,0.0043085,1,False,TRUE
+Autoklene Bulldog Blue,Soap,33,5000,2,0.0066,1:10,False,TRUE
+auto fanatic professional wheel cleaning foam,Wheel Cleaner,37.99,450,0,0.0844222222222222,1,False,TRUE
+p&s brake buster,Wheel Cleaner,54.95,3800,0,0.0144605263157895,1,False,TRUE
+Autoklene Ripoff,Wheel Cleaner,74.95,20000,0,0.0037475,1,False,TRUE
+Autoklene King Hit,Wheel Cleaner,84.36,20000,1,0.004218,1:5,False,TRUE
+Optimum No Rinse Wash & Shine,No Rinse,110.25,3800,0,0.0290131578947368,1,False,TRUE
+Optimum Opti-Clean Water-less Wash,No Rinse,11.99,532,0,0.0225375939849624,1,False,TRUE
+STJARNAGLOSS SILKE,Quick Detailer,20,500,0,0.04,1,False,TRUE
+Hit-Tech Plastic Razor Blades,Razor,10.75,100,0,0.1075,1,False,TRUE
+Autoklene 2″ Plastic Razor Blade Holder,Razor,5.5,1,1,5.5,1,False,TRUE
+America line single edge razor,Razor,58.11,100,1,0.5811,1,False,TRUE
+0000 Super Fine Steel Wool,Steel Wool,30.27,12,1,2.5225,1,False,TRUE
+stoner invisible glass cleaner,Glass Cleaner,17.99,946,0,0.0190169133192389,1,False,TRUE
+Autoklene Fast glass,Glass Cleaner,72.16,20000,2,0.003608,1,False,TRUE
+rainx,Glass Protectant,21,680,1,0.0308823529411765,1,False,TRUE
+nanolex Ultra  Glass,Glass Protectant,49.99,30,1,1.66633333333333,1,False,TRUE
+Auto glym glass polish,Glass Polish,20.56,500,2,0.04112,1,False,TRUE
+P&S Professional Detail Products Clarity Crème,Glass Polish,47.95,473,0,0.101374207188161,1,False,TRUE
+Smart 500,Polish Compound,91.25,1000,2,0.09125,1,False,TRUE
+Smart 1000,Polish Compound,91.25,1000,2,0.09125,1,False,TRUE
+Smart 2000,Polish Compound,91.25,1000,1,0.09125,1,False,TRUE
+Smart 3000,Polish Compound,91.25,1000,1,0.09125,1,False,TRUE
+Meguiar's M205 Mirror Glaze Ultra Finishing Polish,Polish Compound,57.5,236,0,0.24364406779661,1,False,FALSE
+RUPES Coarse Compound for Polish & Swirl Remover,Polish Compound,33,250,0,0.132,1,False,FALSE
+Meguiar's M105 Mirror Glaze Ultra-Cut Compound,Polish Compound,109.99,945,0,0.116391534391534,1,False,FALSE
+Meguiar's DA Microfibre D300 Correction Compound,Polish Compound,42.49,473,0,0.089830866807611,1,False,FALSE
+Meguiar's DA Microfiber Cutting Disc,Pads,99,2,0,49.5,1,False,FALSE
+Meguiar's DFC6 Cutting,Pads,36.99,1,0,36.99,1,False,FALSE
+Meguiar's DMC3,Pads,99,2,0,49.5,1,False,FALSE
+Meguiar's DMC5,Pads,99,2,0,49.5,1,False,FALSE
+Meguiar's DMC6,Pads,99,2,0,49.5,1,False,FALSE
+Rupes Bigfoot Yellow Fine Foam Pad,Pads,26.2,1,0,26.2,1,False,FALSE
+Meguiar's DFP6 Polish,Pads,36.99,1,0,36.99,1,False,FALSE
+Meguiar's DFF6 Finishing,Pads,36.99,1,0,36.99,1,False,FALSE
+Meguiar's DMF3,Pads,36.99,1,0,36.99,1,False,FALSE
+Meguiar's DMF5,Pads,36.99,1,0,36.99,1,False,FALSE
+Meguiar's DMF6,Pads,36.99,1,0,36.99,1,False,FALSE
+Rupes BigFoot Medium Wool (Yellow),Pads,26.2,1,0,26.2,1,False,FALSE
+Lithium Hyper Cleanse,Interior Cleaner,38.99,473,0,0.082431289640592,1,False,TRUE
+Chemical Guys Total Interior Clean,Interior Cleaner,54.99,3800,0,0.014471052631579,1,False,TRUE
+SONAX XTREME Interior Cleaner,Interior Cleaner,24.99,500,0,0.04998,1,False,TRUE
+303 All Surface Interior Cleaner,Interior Cleaner,19.19,473,0,0.0405708245243129,1,False,TRUE
+Meguiar's Quik Interior Detailer Cleaner,Interior Cleaner,79.99,3000,0,0.0266633333333333,1,False,TRUE
+"Enerzen Ozone Generator 11,000mg",Ozone,79.99,1,0,79.99,1,False,FALSE
+OZONE Generator Oxyzone Cube,Ozone,60,1,1,60,1,False,FALSE
+Bio-Zyme Enzyme,Carpet Cleaner,36.95,946,0,0.0390591966173361,1,False,TRUE
+Bridgepoint Bio Break Powdered Enzyme Prespray,Carpet Cleaner,84,2720,0,0.0308823529411765,1,False,TRUE
+bonnet pro Surround Waste Away,Carpet Cleaner,110,1000,0,0.11,1,False,TRUE
+SONAX Upholstery & Alcantara Cleaner,Carpet Cleaner,29.99,400,0,0.074975,1,False,TRUE
+BISSELL Pet Stain & Odour Formula,Carpet Cleaner,25,473,1,0.0528541226215645,1,False,TRUE
+OUT! Advanced Stain and Odor Removerv,Carpet Cleaner,98,946,0,0.103594080338266,1,False,TRUE
+febreze,Air Freshner,3.59,370,1,0.0097027027027027,1,False,TRUE
+folex,Carpet Cleaner,35.22,946,0,0.03723044397463,1,False,TRUE
+Concrobium Mold Control,Carpet Cleaner,40.1,3780,0,0.0106084656084656,1,False,TRUE
+Bissell wash & protect,Carpet Cleaner,25.99,750,0,0.0346533333333333,1,False,TRUE
+Bridgepoint Flex,Carpet Cleaner,84.7,2950,0,0.0287118644067797,1,False,TRUE
+Bridgepoint Flex Ice Powder,Carpet Cleaner,99,2950,0,0.0335593220338983,1,False,TRUE
+Citrusolv™ Concentrate Natural Degreaser,Degreaser,68.26,3800,0,0.0179631578947368,1,False,TRUE
+g31 terminator,Carpet Cleaner,51.95,3800,0,0.0136710526315789,1,False,TRUE
+g30 carpet bomber,Carpet Cleaner,58.95,3800,0,0.0155131578947368,1,False,TRUE
+g32 finisher,Carpet Cleaner,48.95,3800,0,0.0128815789473684,1,False,TRUE
+COLOURLOCK MILD LEATHER CLEANER,Leather Cleaner,89.99,1000,0,0.08999,1,False,TRUE
+p&s shape up,Leather Cleaner,78.95,3800,0,0.0207763157894737,1,False,TRUE
+Autoklene Calaroma,Air Freshner,105,20000,1,0.00525,1,False,TRUE

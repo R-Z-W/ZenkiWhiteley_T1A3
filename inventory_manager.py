@@ -3,6 +3,7 @@ import os
 import re
 import matplotlib.pyplot as plt
 import os
+import shutil
 
 def main():
     while True:
@@ -16,7 +17,8 @@ def main():
         Search/Add Database         = (3)
         Add Product to Order        = (4)
         Display Database            = (5)
-        Calculate Log Cost          = (6)     
+        Calculate Log Cost          = (6)
+        Reset Program               = (7)    
             """)
         usr = usr_input_num('-Input a Number: ')
         match usr:
@@ -24,15 +26,12 @@ def main():
                 cls()
                 # * BUG make sure log files are inserted in order else dates will not align in csv
                 log_names = get_log_names() # Display Available Log Files
-                print('\n')
-
                 if len(log_names) > 1:
-                    if yes_no_check('-Open Multiple Log Files Y/N: ') == True:
+                    if yes_no_check('\n-Open Multiple Log Files Y/N: ') == True:
                         for log_file in log_names:
                             if open_log(log_file) == True: #If Successful move onto next functions
                                 move_to_OldLogs(log_file) # Move Log File
                                 compare_log_database()
-
                 elif len(log_names) <= 1:
                     log_file = input('-Input Oldest Daily Log File: ')
                     if open_log(log_file) == True: #If Successful move onto next functions
@@ -75,9 +74,14 @@ def main():
                 display_database()
 
             case 6: # Calculate Cost
+                cls()
                 get_dates_names()
                 get_dates_data()
                 pass
+
+            case 7:
+                cls()
+                reset()
 
         if yes_no_check('\nExit? Y/N: ') == True:
             print('Exiting...')
@@ -122,6 +126,44 @@ def yes_no_check(prompt):
     if yes_no.lower() in yes_list:
         return True
 
+# Reset Files Back To Normal
+def reset():
+    print('Reseting')
+    try:
+        try:
+            with os.scandir('./OldLogs') as old_logs:
+                for log in old_logs:
+                    if log.is_file():
+                        os.unlink(log.path)
+            print("All Old Logs deleted.")
+        except OSError:
+            print('Error: OldLog Files Delete Failure')
+        try:
+            with os.scandir('./') as old_data:
+                for data in old_data:
+                    data_name = data.name
+                    if data_name in ['detailing_database.csv', 'productorder.txt']:
+                        os.unlink(data.path)
+                print("All Database & Order Files Deleted.")
+        except:
+            print('Error: Database & Order Form Delete Failure')
+        try:
+            with os.scandir('./BackupData') as new_file:
+                for file in new_file:
+                    if file.is_file():
+                        file = file.name
+                        curr_dir = './BackupData/'+file
+                        dest_dir = './'+file
+                        print(curr_dir)
+                        print(dest_dir)
+                        shutil.copyfile(curr_dir, dest_dir)
+                    else:
+                        continue       
+        except:
+            print('Error: Backup Data Failure!')
+    except:
+        print('Error: Reset Failure!')
+
 #Clear Console
 def cls():
     os.system('cls' if os.name=='nt' else 'clear') # For Windows Linux Apple
@@ -148,8 +190,8 @@ def get_log_names():
 def move_to_OldLogs(log_file):
     try:
         current_dir = './' + log_file
-        old_log_dir = 'OldLogs/Old'+ log_file #desitination and rename log file
-        os.rename(current_dir, old_log_dir) #move used log file
+        old_log_dir = 'OldLogs/Old'+ log_file # desitination and rename log file
+        os.rename(current_dir, old_log_dir) # move used log file
     except Exception as e:
         print(e)
         print('Error: Failed to Move, Check for OldLogs Folder')
