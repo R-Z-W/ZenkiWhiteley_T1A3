@@ -25,17 +25,18 @@ def main():
                 cls()
                 # BUG make sure log files are inserted in order else dates will not align in csv
                 log_names = get_log_names() # Display Available Log Files
+                usr_multi = False
                 if len(log_names) > 1:
-                    if yes_no_check('\n-Open Multiple Log Files Y/N: ') == True:
+                    usr_multi = yes_no_check('\n-Open Multiple Log Files Y/N: ')
+                    if usr_multi == True:
                         for log_file in log_names:
                             if open_log(log_file) == True: #If Successful move onto next functions
                                 move_to_OldLogs(log_file) # Move Log File
                                 compare_log_database()
-                elif len(log_names) <= 1:
-                    log_file = input('-Input Oldest Daily Log File: ')
-                    if open_log(log_file) == True: #If Successful move onto next functions
-                        move_to_OldLogs(log_file) #Move Log File
-                        compare_log_database()
+                log_file = input('-Input Oldest Daily Log File: ')
+                if open_log(log_file) == True: #If Successful move onto next functions
+                    move_to_OldLogs(log_file) #Move Log File
+                    compare_log_database()
                 # No Log Files is handled in get_log_names()
                         
             case 2: # Forecast
