@@ -270,23 +270,15 @@ Product Notifications If Running Low.
 
 <h2>Trello Board</h2>
 
-![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./docs/Trello_T1A3.png)
 
 <h2>Trello Checklists</h2>
 
-![input](./imgs/Trello_T1A3.png)
-![trelloboard](./imgs/Trello_T1A3.png)
-![trelloboard](./imgs/Trello_T1A3.png)
-![trelloboard](./imgs/Trello_T1A3.png)
-![trelloboard](./imgs/Trello_T1A3.png)
-
-Develop an implementation plan which:
-- outlines how each feature will be implemented and a checklist of tasks for each feature
-- prioritise the implementation of different features, or checklist items within a feature
-- provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
-
-
-
+![input](./docs/input_checklist.png)
+![datamanipulation](./docs/DataManipulation_checklist.png)
+![database](./docs/Database_checklist.png)
+![display](./docs/Display_checklist.png)
+![output](./docs/collection_checklist.png)
 
 <h1>Implemented Features</h1>
 
