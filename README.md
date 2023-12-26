@@ -258,7 +258,7 @@ Product Notifications If Running Low.
         - Create And Read Barcodes That Will Autofill Log Files
 
 <h1>Implementation Plan</h1>
-![trelloboard](imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
 Develop an implementation plan which:
 - outlines how each feature will be implemented and a checklist of tasks for each feature
 - prioritise the implementation of different features, or checklist items within a feature
