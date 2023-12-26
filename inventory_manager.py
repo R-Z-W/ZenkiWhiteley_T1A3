@@ -3,7 +3,6 @@ import os
 import re
 import matplotlib.pyplot as plt
 import shutil
-from enum import Enum
 
 # Global variables
 csv_file = 'detailing_database.csv'
