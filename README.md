@@ -2,6 +2,8 @@
 
 A Mini Python Application That Takes In User Input And Log Files, Manipulates Data And Stores It In A Database csv File.
 
+Repositiory: [Github](https://github.com/R-Z-W/ZenkiWhiteley_T1A3)
+
 <h3>Style Guide</h3>
 This Python Application Follows The:
 
@@ -16,18 +18,25 @@ This Python Application Follows The:
 <h3>Setup</h3>
 
 - Open Terminal/Console
+    - By Typing In The Search
+  	- Windows: ```cmd``` For Command Prompt
+  	- Linux/Mac: ```terminal``` For Terminal Emulator	
     - Check Python Version: 
         - Linux/Mac:```python3 --version```
         - Windows: ```python --version```
         - If Python Is Below 3.10 Or Is Not Installed:
             - Install: [python](https://www.python.org/)
 - Once Installed or Updated
-    - Open Terminal/Console Again
+    - Open Terminal/Console
         - Run Command: ```pip install -r requirements.txt```
-        - Run Command: ```python3 inventory_manager.py```
+        
 ---
 
 <h3>Running</h3>
+
+- Open Terminal/Console Again
+    - Run This Command Everytime You Want To Run The Application: ```python3 inventory_manager.py```
+
 
 When Application Is Running
 ```    
@@ -258,6 +267,18 @@ Product Notifications If Running Low.
         - Create And Read Barcodes That Will Autofill Log Files
 
 <h1>Implementation Plan</h1>
+
+<h2>Trello Board</h2>
+
+![trelloboard](./imgs/Trello_T1A3.png)
+
+<h2>Trello Checklists</h2>
+
+![input](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
 
 Develop an implementation plan which:
 - outlines how each feature will be implemented and a checklist of tasks for each feature
