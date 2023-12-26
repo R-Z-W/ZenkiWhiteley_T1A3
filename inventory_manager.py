@@ -374,7 +374,7 @@ def main_usr_forecast():
 # Calculate Least Square Until Limit
 def calculate_least_square_to_limit(name, y, limit):
     try:
-        print(f'{name} Available Data: {y}')
+        print(f'{name} Available Data: {y}') # Display If Data Is Available
         calc_amount = 0
 
         if limit <= 0:
