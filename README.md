@@ -10,8 +10,13 @@ This Python Application Follows The:
  - PEP 8 – Style Guide for Python Code
  - Guide Can Be Found [Here](https://peps.python.org/pep-0008/)
 
-
-
+<h3>Project Python Libraries Used</h3>
+- pandas
+- os
+- re
+- matplotlib
+- shutil
+- unittest
 
 <h1>How To Use</h1>
 
