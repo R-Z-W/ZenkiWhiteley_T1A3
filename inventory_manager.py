@@ -2,7 +2,6 @@ import pandas as pd
 import os
 import re
 import matplotlib.pyplot as plt
-import os
 import shutil
 
 def main():
@@ -102,27 +101,34 @@ def usr_input_boolean(prompt):
             return bool_in
         else:
             print("Invalid Entry, Try True or False")
-
 def usr_input_ratio(prompt):
-    print(prompt)
-    try:
-        ratio_1 = usr_input_num('-First Number: ')
-        ratio_2 = usr_input_num('-Second Number: ')
-        if ratio_1 == ratio_2:
-            ratio_in = 1
-        else:
-            ratio_in = str(ratio_1) + ':' + str(ratio_2)
-        return ratio_in
-    except Exception as e:
-            print(e)
-            print("Invalid ratio Number")
+    while True:
+        print(prompt)
+        try:
+            ratio_1 = usr_input_num('-First Number: ')
+            ratio_2 = usr_input_num('-Second Number: ')
+            if ratio_1 == ratio_2:
+                ratio_in = 1.0
+            else:
+                ratio_in = str(float(ratio_1)) + ':' + str(float(ratio_2)) # float for decimal consistency
+            return ratio_in
+        except Exception as e:
+                print(e)
+                print("Invalid ratio Number")
 def yes_no_check(prompt):
-    yes_list = ['y', 'yes']
-    yes_no = input(prompt)
-    if yes_no.lower() in yes_list:
-        return True
+    while True:
+        yes_list = ['y', 'yes']
+        no_list = ['n', 'no']
+        yes_no = input(prompt)
+        if yes_no.lower() in yes_list:
+            return True
+        elif yes_no.lower() in no_list:
+            return False
+        else:
+            print("Invalid Yes or No, Try Again")
+            continue
 
-# Reset Files Back To Normal
+# Reset Files Back To Normal (No Test For This)
 def reset():
     print('Reseting')
     try:
@@ -160,11 +166,11 @@ def reset():
     except:
         print('Error: Reset Failure!')
 
-#Clear Console
+#Clear Console (No Test For This)
 def cls():
     os.system('cls' if os.name=='nt' else 'clear') # For Windows Linux Apple
 
-# Find And Print Available Log Files In Current Directory
+# Find And Print Available Log Files In Current Directory 
 def get_log_names():
     print('Available Log Files:') 
     log_names = [] # Get Log Files Names in current dir
@@ -182,8 +188,8 @@ def get_log_names():
         print(e)
         print('Error: Missing Log Files')
 
-# Move used log files to OldLogs folder
-def move_to_OldLogs(log_file):
+# Move used log files to OldLogs folder (No Test For This)
+def move_to_OldLogs(log_file): 
     try:
         current_dir = './' + log_file
         old_log_dir = 'OldLogs/Old'+ log_file # desitination and rename log file
@@ -225,7 +231,7 @@ def open_csv():
         print(e)
         print('Error: Failed to Open Csv')
 
-# Casefold csv_name
+# Casefold csv_name (No Test For This)(Works Even on Empty String)
 def csv_name_casefold(csv_name):
     csv_case_name = list((item.casefold() for item in csv_name)) # For Case Insensitive check
     return csv_case_name
@@ -235,12 +241,12 @@ def create_date_column(value):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     date = value
     date = date.strip() #!Important Remove White Space
-    if value not in csv_database.head(0):
+    if date not in csv_database.head(0):
         csv_database[date] = "" #define new column based on date
         csv_database.to_csv(csv_f, index=False) #push to csv
     return date
 
-# Compare Log to Database, Takes in log files
+# Compare Log to Database, Takes in log files (I Dont Know How To Unit Test This Specifically Create Mock CSV to Test)
 def compare_log_database():
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     csv_case_name = csv_name_casefold(csv_name)
@@ -267,7 +273,7 @@ def compare_log_database():
                     add_to_database(key, using, value, date)    
                     low_notify(key, value) #Notify if Low
 
-# Exists in database, update to InUse to true + add log data
+# Exists in database, update to InUse to true + add log data (No Test For This)(Just Prints and Move Data)
 def exist_in_database(name, value, date):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     print(f"{name}: Already Exists" )
@@ -276,7 +282,7 @@ def exist_in_database(name, value, date):
         csv_database.loc[csv_name.index(name), date] = float(value) #record date usage
     csv_database.to_csv(csv_f, index=False) # Push to csv
     
-# Add to database, update to InUse to true + add log data
+# Add to database, update to InUse to true + add log data (No Test For This)(Just Puts Data In csv)
 def add_to_database(name, using, value, date):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     csv_name.append(name)# IMPORTANT Update list so new product can get index in csv_name
@@ -306,7 +312,7 @@ def add_to_database(name, using, value, date):
     csv_database.to_csv(csv_f, index=False) # Push To csv
     print(csv_database.loc[[csv_name.index(name)],:]) # Print Result
 
-#Place Order in productorder.txt
+#Place Order in productorder.txt (No Test For This)(Just Puts Data In txt)
 def order_product(name):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     usr_quantity = usr_input_num('-Input Quantity of Product: ') #Quantity needed
@@ -324,8 +330,7 @@ def order_product(name):
         print(e)
         print('Error: Product Does Not Exist. Please Add In Search/Add Database(3) First')
     
-
-#Notifty When Amount is Below 20%
+#Notifty When Amount is Below 20% (No Test For This)(Just Puts Data In txt)
 def low_notify(name, value):
     if not name.startswith('Recorded'): #Skip Recorded
         csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
@@ -337,7 +342,7 @@ def low_notify(name, value):
                 if yes_no_check('-Add To Order Y/N: ') == True:
                     order_product(name)
 
-# Compare Input to Database, takes in usr input                
+# Compare Input to Database, takes in usr input (No Test For This)(If else Statement)                
 def search_database(name, using):
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     csv_case_name = csv_name_casefold(csv_name)
@@ -351,7 +356,7 @@ def search_database(name, using):
         if yes_no_check('-Add To Database Y/N: ') == True:
             add_to_database(name, using, value, date) #Add to database
 
-# Find Date Names In csv
+# Find Date Names In csv (No Test For This)(Just Gets Dates From Column else returns empty list) 
 def get_dates_names():
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     date_names = []
@@ -360,7 +365,7 @@ def get_dates_names():
             date_names.append(column_names)
     return date_names
 
-# Get Data From Dates In csv
+# Get Data From Dates In csv (No Test For This)(Just Gets Data From Date Names)    
 def get_dates_data(date_names, name):
         csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
         date_data = []
@@ -382,6 +387,9 @@ def calculate_leastsquare_to_limit(name, y, limit):
     try:        
         print(f'{name} Available Data: {y}')
         calc_amount = 0
+        if limit <= 0:
+            print('Error: Total Amount Is Less Than Or Equal To 0. Incorrect Data In Database!')
+            return
         while 0 <= calc_amount <= float(limit): # Contine to calculate unit 0 or limit is reached
             x = []
             xy = []
@@ -412,28 +420,28 @@ def calculate_leastsquare_to_limit(name, y, limit):
         print(e)
         print(f'No Useable Data Available For {name}')
 
-# Display Whole Database
+# Display Whole Database (No Test For This)(Just Grabs Whole csv and Extends pandas range to 1000)
 def display_database():
     csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
     pd.set_option('display.max_rows', 1000)
     print(csv_database)
 
-# Display Specific Column
+# Display Specific Column (No Test For This)(Just Grabs Column Data)
 def display_column_value(column):
-    csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
-    csv_column_values = set(csv_database[column]) # set of Categories to prevent duplicates
-    print(f'Exisiting {column}: {csv_column_values}')
+    try:
+        csv_f, csv_database, csv_name = open_csv() #Run Check on csv for new values
+        csv_column_values = set(csv_database[column]) # set of Categories to prevent duplicates
+        print(f'Exisiting {column}: {csv_column_values}')
+    except:
+        print('Error: Column Could Not Be Found!')
 
-# Create Gaph
+# Create Gaph (No Test For This)(Simple Graph)
 def line_graph(x, y, name):
     plt.plot(x, y)  # Line Graph    
     plt.xlabel('Days')
     plt.ylabel('Usage')
     plt.title(name + ' Graph')
     plt.show() 
-
-    pass
-
 
 #_____________MAIN_______________________-
 #Global Variables
