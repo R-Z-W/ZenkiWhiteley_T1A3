@@ -114,7 +114,7 @@ class TestCalculateLeastSquare(unittest.TestCase):
         y = [10, 20, 30, 40, 50]
         limit = 0
         im.calculate_least_square_to_limit(name, y, limit)
-        mock_print.assert_called_with('Error: Total Amount Is Less Than Or Equal To 0. Incorrect Data In Database!')
+        mock_print.assert_called_with('Error: Total Amount <= 0. Incorrect Data In Database! There Must Be Atleast 1.')
 
     @patch('builtins.print')
     @patch('inventory_manager.line_graph')
@@ -123,7 +123,7 @@ class TestCalculateLeastSquare(unittest.TestCase):
         y = [10, 20, 30, 40, 50]
         limit = -100
         im.calculate_least_square_to_limit(name, y, limit)
-        mock_print.assert_called_with('Error: Total Amount Is Less Than Or Equal To 0. Incorrect Data In Database!')
+        mock_print.assert_called_with('Error: Total Amount <= 0. Incorrect Data In Database! There Must Be Atleast 1.')
 
     @patch('builtins.print')
     @patch('inventory_manager.line_graph')
