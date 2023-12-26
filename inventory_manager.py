@@ -9,14 +9,6 @@ from enum import Enum
 csv_file = 'detailing_database.csv'
 daily_log_dic = {}  # Initialize an empty dictionary
 
-class MenuOptions(Enum):
-    PROCESS_LOG = 1
-    LINEAR_REGRESSION_FORECAST = 2
-    SEARCH_ADD_DATABASE = 3
-    ADD_PRODUCT_TO_ORDER = 4
-    DISPLAY_DATABASE = 5
-    RESET_PROGRAM = 6
-
 def main():
     while True:
         cls()
