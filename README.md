@@ -16,18 +16,25 @@ This Python Application Follows The:
 <h3>Setup</h3>
 
 - Open Terminal/Console
+    - By Typing In The Search
+  	- Windows: ```cmd``` For Command Prompt
+  	- Linux/Mac: ```terminal``` For Terminal Emulator	
     - Check Python Version: 
         - Linux/Mac:```python3 --version```
         - Windows: ```python --version```
         - If Python Is Below 3.10 Or Is Not Installed:
             - Install: [python](https://www.python.org/)
 - Once Installed or Updated
-    - Open Terminal/Console Again
+    - Open Terminal/Console
         - Run Command: ```pip install -r requirements.txt```
-        - Run Command: ```python3 inventory_manager.py```
+        
 ---
 
 <h3>Running</h3>
+
+- Open Terminal/Console Again
+    - Run This Command Everytime You Want To Run The Application: ```python3 inventory_manager.py```
+
 
 When Application Is Running
 ```    
