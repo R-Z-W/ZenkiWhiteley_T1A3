@@ -36,7 +36,7 @@ def main():
                 cls()
                 main_display_database()
 
-            case 6:
+            case 7:
                 cls()
                 main_reset()
 
@@ -61,7 +61,8 @@ def display_menu_options():
     Search/Add Database         = (3)
     Add Product to Order        = (4)
     Display Database            = (5)
-    Reset Program               = (6)    
+    Change Database             = (6)
+    Reset Program               = (7)    
         """)
 
 
@@ -86,7 +87,7 @@ def display_log_files():
 
 
 def main_display_database():
-    _, csv_database, _ = open_csv()  # Run Check on csv for new values
+    csv_database, _ = open_csv()  # Run Check on csv for new values
     pd.set_option('display.max_rows', 1000)
     print(csv_database)
 
@@ -96,7 +97,7 @@ def main_display_database():
 
 def display_column_value(column):
     try:
-        _, csv_database, _ = open_csv()
+        csv_database, _ = open_csv()
         csv_column_values = set(csv_database[column])
         print(f'Existing {column}: {csv_column_values}')
     except:
@@ -191,10 +192,9 @@ def yes_no_check(prompt):
 
 def open_csv():
     try:
-        csv_file = 'detailing_database.csv'
         csv_database = pd.read_csv(csv_file)
         csv_names = list(csv_database['Name'])
-        return csv_file, csv_database, csv_names
+        return csv_database, csv_names
     except:  # Exception as e
         # print(e)
         print('Error: Failed to Open Csv')
@@ -204,7 +204,7 @@ def open_csv():
 
 
 def get_dates_names():
-    _, csv_database, _ = open_csv()
+    csv_database, _ = open_csv()
     date_names = []  # Possible List Comprehension Here
     for column_names in csv_database.columns:  # PANDAS HAS .columns USED IN column check aswell
         # If Regex match Get Dates from Columns Names
@@ -217,7 +217,7 @@ def get_dates_names():
 
 
 def get_dates_data(date_names, name):
-    _, csv_database, csv_names = open_csv()
+    csv_database, csv_names = open_csv()
     date_data = []
     for dates in date_names:
         # Values From Dates
@@ -308,7 +308,7 @@ def move_to_old_logs(log_file):
 
 
 def log_compare_database():
-    _, _, csv_names = open_csv()
+    _, csv_names = open_csv()
     print(daily_log_dic)
     for key, value in daily_log_dic.items():
         if value is None:
@@ -340,7 +340,7 @@ def log_compare_database():
 
 
 def main_usr_search_database_input():
-    _, _, csv_names = open_csv()
+    _, csv_names = open_csv()
     print(f'Available Products:\n {csv_names} \n')
     name = input('-Input Name of Product: ')
     is_using = usr_input_boolean('-Currently InUse? True or False: ')
@@ -357,7 +357,7 @@ def main_usr_search_database_input():
 
 
 def usr_compare_database(name, using):
-    _, csv_database, csv_names = open_csv()
+    csv_database, csv_names = open_csv()
     # Dont Need to declare value or date just put straight into function!
     if name.casefold() in csv_names_casefold(csv_names):
         exist_in_database(name, None, None)
@@ -375,7 +375,7 @@ def usr_compare_database(name, using):
 
 
 def create_date_column(date):
-    _, csv_database, _ = open_csv()
+    csv_database, _ = open_csv()
     date = date.strip()  # !Important Remove White Space
 
     if date not in csv_database.columns:  # PANDAS HAS .columns THANK GOD????
@@ -388,7 +388,7 @@ def create_date_column(date):
 
 
 def exist_in_database(name, value, date):
-    _, csv_database, csv_names = open_csv()
+    csv_database, csv_names = open_csv()
     print(f"{name}: Already Exists")
 
     index = csv_names.index(name)  # Cleaner To have Seperate and reuse!!!
@@ -404,7 +404,7 @@ def exist_in_database(name, value, date):
 
 
 def absent_in_database(name, using, value, date):
-    _, csv_database, csv_names = open_csv()
+    csv_database, csv_names = open_csv()
 
     csv_names.append(name)
     index = csv_names.index(name)  # Again Cleaner
@@ -455,7 +455,7 @@ def main_usr_add_product_to_order_input():
 
 
 def order_product(name):
-    _, csv_database, csv_names = open_csv()
+    csv_database, csv_names = open_csv()
     usr_quantity = usr_input_num('-Input Quantity of Product: ')
 
     try:
@@ -478,7 +478,7 @@ def order_product(name):
 
 def low_notify(name, value):
     if not name.startswith('Recorded'):
-        _, csv_database, csv_names = open_csv()
+        csv_database, csv_names = open_csv()
         # False SingleUse, no need for 20%
         if csv_database.loc[csv_names.index(name), 'SingleUse'] in [True, 'TRUE', 'True']:
             total_amount = calculate_total_amount(name)
@@ -498,7 +498,7 @@ def low_notify(name, value):
 
 
 def main_usr_forecast():
-    _, _, csv_names = open_csv()
+    _, csv_names = open_csv()
     print(f'Available Products:\n {csv_names} \n')
     name = input('-Input Name of Product: ')
     date_names = get_dates_names()
@@ -570,7 +570,7 @@ def calculate_least_square_to_limit(name, y, limit):
 
 
 def calculate_total_amount(name):
-    _, csv_database, csv_names = open_csv()
+    csv_database, csv_names = open_csv()
     unit_quantity = csv_database.loc[csv_names.index(name), 'UnitQuantity']
     extra = csv_database.loc[csv_names.index(name), 'Extra']
     total_amount = (unit_quantity + unit_quantity * extra)
@@ -612,7 +612,7 @@ def del_database_and_order_file():
         with os.scandir('./') as old_data:
             for data in old_data:
                 data_name = data.name
-                if data_name in ['detailing_database.csv', 'productorder.txt']:
+                if data_name in [csv_file, 'productorder.txt']:
                     os.unlink(data.path)
             print("Database & Order File Deleted.")
     except:
@@ -640,6 +640,15 @@ def backup_data():
 
 
 # ------------------------------------------------------------------------
+
+
+# Import New csv Database
+
+
+def change_database():
+    global csv_file # Not Good Practice Please Change
+    new_csv = input('-Input A New csv Database: ')
+    csv_file = new_csv 
 
 
 if __name__ == "__main__":
