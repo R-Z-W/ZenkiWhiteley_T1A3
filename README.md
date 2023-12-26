@@ -2,6 +2,8 @@
 
 A Mini Python Application That Takes In User Input And Log Files, Manipulates Data And Stores It In A Database csv File.
 
+Repositiory: [Github](https://github.com/R-Z-W/ZenkiWhiteley_T1A3)
+
 <h3>Style Guide</h3>
 This Python Application Follows The:
 
@@ -266,9 +268,17 @@ Product Notifications If Running Low.
 
 <h1>Implementation Plan</h1>
 
+<h2>Trello Board</h2>
+
 ![trelloboard](./imgs/Trello_T1A3.png)
 
+<h2>Trello Checklists</h2>
 
+![input](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
+![trelloboard](./imgs/Trello_T1A3.png)
 
 Develop an implementation plan which:
 - outlines how each feature will be implemented and a checklist of tasks for each feature
